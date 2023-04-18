@@ -11,6 +11,8 @@ import Table from "./pages/Table";
 import Register from "./pages/Register";
 import Topup from "./pages/Topup";
 import Belanja from "./pages/Belanja";
+import Catatan from "./pages/Catatan";
+import AddCatatan from "./pages/AddCatatan";
 
 const isAuth = false;
 
@@ -39,6 +41,8 @@ export default function App() {
           <Route exact path="/register" element={<Register/>} />
           <Route exact path="/topup" element={<Topup/>} />
           <Route exact path="/belanja" element={<Belanja/>} />
+          <Route exact path="/catatan" element={<Catatan/>} />
+          <Route exact path="/tambah-catatan" element={<AddCatatan/>} />
         </Routes>
       </Router>
     </div>

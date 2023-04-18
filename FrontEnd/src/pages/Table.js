@@ -8,6 +8,7 @@ export default () => {
     const [tanggal, setTanggal] = useState()
     const [logOut, setLogOut] = useState(false)
     const [belanja, setBelanja] = useState(false)
+    const [catatan, setCatatan] = useState(false)
 
     const user_id = localStorage.getItem("user_id")
     const token = localStorage.getItem("token")
@@ -60,12 +61,21 @@ export default () => {
         setBelanja(true)
     };
 
+    const Catatan = (event) => {
+        event.preventDefault();
+        setCatatan(true)
+    }
+
     if (logOut){
         return <Navigate to='/'/>;
     }
 
     if (belanja){
         return <Navigate to='/belanja'/>;
+    }
+
+    if(catatan){
+        return <Navigate to='/catatan'/>;
     }
 
 
@@ -126,6 +136,9 @@ export default () => {
                 </div>
                 <button className="bg-dark" onClick={Belanja} type="submit">
                 Belanja
+            </button>
+            <button onClick={Catatan} type="catatan">
+                Lihat Catatan
             </button>
             <button onClick={LogOut} type="submit">
                 LogOut
