@@ -56,7 +56,7 @@ export default () => {
   };
   
   if (berhasilIsi){
-    return <Navigate to='/'/>;
+    return <Navigate to='/table'/>;
   }
 
   if (error) {
