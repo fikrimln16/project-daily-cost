@@ -55,12 +55,16 @@ export default () => {
             <h2>{item.title}</h2>
             <p>{item.body}</p>
             <p>{item.created_at}</p>
+            <img src={item.url} style={{ width: '200px' }}></img>
             </div>
         ))}
         <button onClick={TambahCatatan} type="submit">
             Tambah Catatan
         </button>
-        <button onClick={Back} type="submit">
+        <button onClick={(event) => {
+                    event.preventDefault();
+                    setKembali(true);
+                }} type="submit">
             Back
         </button>
         </div>

@@ -3,17 +3,16 @@ import React, { useState, useEffect } from "react";
 import { Navigate } from "react-router-dom";
 
 export default () => {
-
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
     const [isLoggedIn, setIsLoggedIn] = useState(false)
     const [register, setRegister] = useState(false)
-
     const login = {
         email: username,
         password: password,
     };
+
 
     const handleUsernameChange = (event) => {
         setUsername(event.target.value);
@@ -52,6 +51,7 @@ export default () => {
         }
     };
 
+
     if (isLoggedIn){
         return <Navigate to='/table'/>;
     }
@@ -59,7 +59,6 @@ export default () => {
     if (register){
         return <Navigate to='/register'/>;
     }
-
 
     return (
         <div className="container">

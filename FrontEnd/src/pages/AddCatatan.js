@@ -6,7 +6,8 @@ export default () => {
     const [title, setTitle] = useState("");
     const [body, setBody] = useState("");
     const [date, setDate] = useState("");
-
+    const [image, setImage] = useState(null);
+    
     const [succed, setSucced] = useState(false);
     const [error, setError]= useState(false);
 
@@ -17,6 +18,7 @@ export default () => {
         body: body,
         date: date,
         user_id: localStorage.getItem("user_id"),
+        file: image
     };
 
 
@@ -32,11 +34,16 @@ export default () => {
         setDate(event.target.value);
     };
 
+    const handleImage = (event) => {
+        setImage(event.target.files[0]);
+    };
+
     const tambahHandler = (event) => {
         event.preventDefault();
         axios
         .post("http://localhost:5000/user/catatan", formCatatan, {
             headers: {
+                'Content-Type': 'multipart/form-data',
                 'Authorization': `Bearer ${token}`
             }
         })
@@ -46,8 +53,9 @@ export default () => {
             setSucced(true);
         })
         .catch((err) => {
-            alert("token expired, silahkah login kembali!");
-            setError(true);
+            // alert("token expired, silahkah login kembali!");
+            // setError(true);
+            console.log(formCatatan)
         });
     };
 
@@ -76,9 +84,14 @@ export default () => {
         <input type="date" value={date} onChange={handleDate} />
         <br />
         <br />
+        <label>Upload Image</label>
+        <br />
+        <input type="file" onChange={handleImage} />
+        <br />
+        <br />
         <button type="submit" onClick={tambahHandler}>
             Tambah
         </button>
         </form>
-    );
-};
+    )
+}

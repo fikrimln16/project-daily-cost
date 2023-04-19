@@ -13,6 +13,7 @@ import Topup from "./pages/Topup";
 import Belanja from "./pages/Belanja";
 import Catatan from "./pages/Catatan";
 import AddCatatan from "./pages/AddCatatan";
+import LoginGoogle from "./pages/LoginGoogle";
 
 const isAuth = false;
 
@@ -43,6 +44,7 @@ export default function App() {
           <Route exact path="/belanja" element={<Belanja/>} />
           <Route exact path="/catatan" element={<Catatan/>} />
           <Route exact path="/tambah-catatan" element={<AddCatatan/>} />
+          <Route exact path="/google" element={<LoginGoogle/>} />
         </Routes>
       </Router>
     </div>

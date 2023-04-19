@@ -78,6 +78,11 @@ export default () => {
       });
   };
 
+  const [kembali, setKembali] = useState(false)
+  if(kembali){
+    return <Navigate to='/table'/>;
+  }
+
   if (succed) {
     return <Navigate to="/table" />;
   }
@@ -110,6 +115,12 @@ export default () => {
       <button type="submit" onClick={belanjaHandler}>
         Belanja
       </button>
+      <button onClick={(event) => {
+                    event.preventDefault();
+                    setKembali(true);
+                }} type="submit">
+            Back
+        </button>
     </form>
   );
 };

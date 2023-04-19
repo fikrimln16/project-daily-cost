@@ -44,6 +44,11 @@ export default () => {
     return <Navigate to='/topup'/>;
 }
 
+const [kembali, setKembali] = useState(false)
+if(kembali){
+  return <Navigate to='/'/>;
+}
+
   return (
     <form>
       <label>
@@ -63,6 +68,12 @@ export default () => {
       <br />
       {error && <p>{error}</p>}
       <button type="submit" onClick={registerHandler}>Daftar</button>
+      <button onClick={(event) => {
+                    event.preventDefault();
+                    setKembali(true);
+                }} type="submit">
+            Back
+        </button>
     </form>
   );
 }
